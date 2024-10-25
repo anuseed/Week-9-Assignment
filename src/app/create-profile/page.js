@@ -11,16 +11,16 @@ export default async function SignUpPage() {
   async function handleBiography(formData) {
     "use server";
     console.log(formData);
+    const userName = formData.get("user_name");
     const location = formData.get("location");
     const two_cents = formData.get("two_cents");
 
     await db.query(
-      `INSERT INTO users (clerk_id, location, two_cents) VALUES ($1, $2, $3)`,
-      [userId, location, two_cents]
+      `INSERT INTO users (clerk_id, user_name, location, two_cents) VALUES ($1, $2, $3,$4)`,
+      [userId, userName, location, two_cents]
     );
 
-    revalidatePath(`/user-profile/${userId}`);
-    redirect(`/user-profile/${userId}`);
+    revalidatePath(`/user-profile`);
   }
 
   return (
@@ -32,6 +32,8 @@ export default async function SignUpPage() {
       </h2>
       <h1>Please complete your biography</h1>
       <form action={handleBiography}>
+        <label html="user_name">What should your user name be?</label>
+        <input id="user_name" name="user_name" />
         <label html="location">your location</label>
         <input id="location" name="location" />
         <label html="two_cents">Your two cents thought</label>

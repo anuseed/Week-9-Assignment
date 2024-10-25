@@ -4,7 +4,10 @@ export default function GlobalError({ error, reset }) {
   return (
     <html>
       <body>
-        <h2>Oh no! Something went wrong on that page! 🙈</h2>
+        <h2>
+          Oh no! Something went wrong on that page! Couldn`&apos;`t find your
+          stickies!
+        </h2>
         <p>{error.message}</p>
         <button onClick={() => reset()}>Try again</button>
       </body>
