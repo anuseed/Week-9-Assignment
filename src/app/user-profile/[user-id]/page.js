@@ -31,17 +31,23 @@ export default async function UserProfilePage({ params }) {
   return (
     <>
       {wrangledBiography.map((biography) => (
-        <div key={biography.id}>
-          <p>This is {biography.user_name}</p>
+        <div
+          key={biography.id}
+          className="flex flex-col items-center space-y-5 m-5 p-2"
+        >
+          <p>{biography.user_name}'s Profile</p>
           <p>Their Location: {biography.location}</p>
           <p>Their two cents: {biography.two_cents}</p>
         </div>
       ))}
-      <h2>Their Stickies</h2>
+
       <div className={userStyles.container}>
         {wrangledStickies.map((sticky) => (
-          <div key={sticky.id} className={userStyles.sticky}>
-            <p>{sticky.sticky}</p>
+          <div
+            key={sticky.id}
+            class="card bg-primary text-primary-content w-64 h-64 shadow-xl"
+          >
+            <p class="card-body">{sticky.sticky}</p>
           </div>
         ))}
       </div>

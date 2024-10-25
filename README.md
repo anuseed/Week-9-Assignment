@@ -23,7 +23,7 @@ I have an mvp wireframe with the optional stretch goal addition of a global stic
 - Create and display an error page if the user visits a user profile that doesn’t exist.
   - not found and error pages created, need styling and change content to suit stickies theme. Would like to add an image.
 - Use 1 or more Radix UI Primitive or something similar (e.g. use of another library to enhance UX).
-  - Have installed Radix, having issues with Material UI as the version is no longer compatible with next and react updates. Will give daisy ui a try.
+  - Have installed Radix, having issues with Material UI as the version is no longer compatible with next and react updates. Will give daisy ui a try. Daisy UI lovely to use seems to work most on local still need to deploy on vercel to double check.
 - Enable users to create a user profile, and input profile information (such as a user biography) using a form.
   -Users are redirected to a create-profile page after sign-up. Their biography is then displayed on the user profile page, where they can post stickies.
 - Users and user information should be stored in their own table in the database and handled with an appropriate route (e.g. /user/[userId]).

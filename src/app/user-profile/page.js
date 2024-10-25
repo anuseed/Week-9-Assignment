@@ -1,6 +1,4 @@
-// if you want to set up a profile that renders data from clerk, you need:
-// auth()
-// currentUser --> username, email address
+// this is the logged in users page
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { db } from "@/utils/dbConnection";
 import userStyles from "@/app/user-profile/user-profile.module.css";
@@ -43,27 +41,41 @@ export default async function UserProfilePage() {
   return (
     <>
       {wrangledBiography.map((biography) => (
-        <div key={biography.id}>
+        <div
+          key={biography.id}
+          className="flex flex-col items-center space-y-5 m-5 p-2"
+        >
           <p>Welcome {biography.user_name}</p>
           <p>Location: {biography.location}</p>
           <p>Your two cents: {biography.two_cents}</p>
         </div>
       ))}
-      <form action={handleSaveSticky}>
-        <label html="sticky">Sticky for your thoughts ...</label>
-        <textarea id="sticky" name="sticky" />
-        <button
-          type="submit"
-          className=" rd-2 border-4 bg-blue-400 rounded-md p-4 m-4"
+      <div>
+        <form
+          action={handleSaveSticky}
+          className="flex flex-col justify-items-center space-y-5 m-5 p-5 "
         >
-          Save
-        </button>
-      </form>
-      <h2>Your Stickies</h2>
+          <label html="sticky"></label>
+          <textarea
+            id="sticky"
+            name="sticky"
+            class="textarea textarea-bordered textarea-md w-full max-w-xs"
+            placeholder="Sticky for your thoughts..."
+            required
+          />
+          <button type="submit" class="btn btn-accent btn-outline w-24">
+            Save
+          </button>
+        </form>
+      </div>
+
       <div className={userStyles.container}>
         {wrangledStickies.map((sticky) => (
-          <div key={sticky.id} className={userStyles.sticky}>
-            <p>{sticky.sticky}</p>
+          <div
+            key={sticky.id}
+            class="card bg-primary text-primary-content w-64 h-64 shadow-xl"
+          >
+            <p class="card-body">{sticky.sticky}</p>
           </div>
         ))}
       </div>

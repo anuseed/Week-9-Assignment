@@ -24,27 +24,42 @@ export default async function SignUpPage() {
   }
 
   return (
-    <>
-      <h2>
-        Welcome {user?.firstName}
-        {""}
-        {user?.lastName}
-      </h2>
-      <h1>Please complete your biography</h1>
-      <form action={handleBiography}>
+    <div>
+      <h1 className="text-center p-5 m-5 text-2xl">
+        Please complete your biography
+      </h1>
+      <form
+        action={handleBiography}
+        className="flex flex-col justify-items-center space-y-5 m-5 p-5 "
+      >
         <label html="user_name">What should your user name be?</label>
-        <input id="user_name" name="user_name" />
-        <label html="location">your location</label>
-        <input id="location" name="location" />
-        <label html="two_cents">Your two cents thought</label>
-        <input id="two_cents" name="two_cents" max={50} />
-        <button
-          type="submit"
-          className=" rd-2 border-4 bg-blue-400 rounded-md p-4 m-4"
-        >
+        <input
+          id="user_name"
+          name="user_name"
+          class="input input-bordered input-info w-full max-w-xs"
+          placeholder="Type here"
+          required
+        />
+        <label html="location">Where do you live?</label>
+        <input
+          id="location"
+          name="location"
+          class="input input-bordered input-info w-full max-w-xs"
+          placeholder="Type here"
+        />
+        <label html="two_cents">Your two cents thought.</label>
+        <textarea
+          id="two_cents"
+          name="two_cents"
+          class="textarea textarea-info textarea-md w-full max-w-xs"
+          placeholder="Type here, no more than a few words"
+          required
+          max={50}
+        />
+        <button type="submit" class="btn btn-accent btn-outline w-24">
           Save
         </button>
       </form>
-    </>
+    </div>
   );
 }

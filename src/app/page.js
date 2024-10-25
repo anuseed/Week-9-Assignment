@@ -3,7 +3,7 @@ import note from "@/../public/note.png";
 import SignInUp from "@/components/SignInUp";
 import userStyles from "../app/user-profile/user-profile.module.css";
 import { db } from "@/utils/dbConnection";
-import { SignedIn } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default async function StickyHomePage() {
@@ -17,29 +17,51 @@ export default async function StickyHomePage() {
   console.log(wrangledStickies, "this wrangled");
   return (
     <>
-      <div className="flex flex-row items-center">
-        <Image
-          src={note}
-          alt="cartoon girl with stickies stuck to her"
-          className=" m-5 rounded-lg border-2"
-          width={100}
-          height={100}
-        />
-        <h1 className="p-5 text-3xl">Sticky</h1>
-        <br />
-        <h3 className="p-5">for your thoughts...</h3>
-      </div>
+      <SignedOut>
+        <div className="flex flex-row justify-center items-center p-5">
+          <Image
+            src={note}
+            alt="cartoon girl with stickies stuck to her"
+            className=" m-5 rounded-lg border-2"
+            width={100}
+            height={100}
+          />
+          <h1 className="p-5 text-3xl">Sticky</h1>
+          <br />
+          <h3 className="p-5">for your thoughts...</h3>
+        </div>
+      </SignedOut>
       <SignInUp />
       <SignedIn>
         <div>
-          <h2>Everyone`s Stickies</h2>
+          <div className="flex flex-row justify-center items-center p-5">
+            <Image
+              src={note}
+              alt="cartoon girl with stickies stuck to her"
+              className=" m-5 rounded-lg border-2"
+              width={100}
+              height={100}
+            />
+            <h1 className="p-5 text-3xl">Sticky thoughts...</h1>
+            <br />
+          </div>
           <div className={userStyles.container}>
             {wrangledStickies.map((sticky) => (
-              <div key={sticky.id} className={userStyles.sticky}>
-                <p>{sticky.sticky}</p>
-                <Link href={`/user-profile/${sticky.user_clerk_id}`}>
-                  {sticky.user_name}
-                </Link>
+              <div
+                class="card bg-primary text-primary-content w-64 h-64 shadow-xl"
+                key={sticky.id}
+              >
+                <div class="card-body">
+                  <h2 class="card-title">
+                    <Link
+                      class="link link-success"
+                      href={`/user-profile/${sticky.user_clerk_id}`}
+                    >
+                      {sticky.user_name}
+                    </Link>
+                  </h2>
+                  <p>{sticky.sticky}</p>
+                </div>
               </div>
             ))}
           </div>
