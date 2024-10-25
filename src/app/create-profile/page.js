@@ -47,7 +47,7 @@ export default async function SignUpPage() {
           class="input input-bordered input-info w-full max-w-xs"
           placeholder="Type here"
         />
-        <label html="two_cents">Your two cents thought.</label>
+        <label html="two_cents">Your two cents&apos; thought.</label>
         <textarea
           id="two_cents"
           name="two_cents"

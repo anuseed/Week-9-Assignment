@@ -35,7 +35,7 @@ export default async function UserProfilePage({ params }) {
           key={biography.id}
           className="flex flex-col items-center space-y-5 m-5 p-2"
         >
-          <p>{biography.user_name}'s Profile</p>
+          <p>{biography.user_name}&apos;s Profile</p>
           <p>Their Location: {biography.location}</p>
           <p>Their two cents: {biography.two_cents}</p>
         </div>

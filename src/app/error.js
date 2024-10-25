@@ -21,8 +21,8 @@ export default function GlobalError({ error, reset }) {
             </svg>
             <span>
               {" "}
-              Oh no! Something went wrong on that page! Couldn`&apos;`t find
-              your stickies!
+              Oh no! Something went wrong on that page! Couldn&apos;t find your
+              stickies!
             </span>
           </div>
 
