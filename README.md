@@ -19,19 +19,24 @@ I have an mvp wireframe with the optional stretch goal addition of a global stic
 ## Requirements
 
 - Set up user sign-up and user login using Clerk.
-  - This is now done, still need to customise the layout and check header. Still also having trouble getting the clerk id in the database
+  - This is now done, still need to customise the layout and check header. Still also having trouble getting the clerk id in the database, fixed this with an await auth()!
 - Create and display an error page if the user visits a user profile that doesn’t exist.
-  - not found and error pages created, need styling and change content to stuit stickies theme
+  - not found and error pages created, need styling and change content to suit stickies theme. Would like to add an image.
 - Use 1 or more Radix UI Primitive or something similar (e.g. use of another library to enhance UX).
-  - Have installed Radix, having issues with Material UI as the version is no longer compatible with next and react updates.
+  - Have installed Radix, having issues with Material UI as the version is no longer compatible with next and react updates. Will give daisy ui a try.
 - Enable users to create a user profile, and input profile information (such as a user biography) using a form.
-  -Users now have a profile they can go to to post stickies. Still need to sort out my routes that it makes a bit more sense with the input of their info. Need a user input form for their biography.
+  -Users are redirected to a create-profile page after sign-up. Their biography is then displayed on the user profile page, where they can post stickies.
 - Users and user information should be stored in their own table in the database and handled with an appropriate route (e.g. /user/[userId]).
-  - Need a user input biography page.
+  - When the user inputs their biography details this goes to the database.
 - Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
+  - Stickies are displayed on the users page and a revalidatePath rerenders the stickies.
 
 ## Stretch Goals
 
 - have a global timeline for all stickies
-  - allow users to like and comment on stickies
+  - All stickies are displayed on the homepage with the ability to click on the username to take the current user to that user's profile page, where they can see that users biography and stickies.Created a seperate route for [user-id] where the logged in user can see other users profiles.
 - add a delete and update button for the user to be able to delete stickies on their own page
+
+## Fix
+
+- vercel environment variables as force redirect is not working
