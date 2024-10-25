@@ -1,6 +1,8 @@
 .container {
   /* padding: 20; */
-  margin: 60;
+  margin-left: 60;
+  margin-right: 60;
+  margin-bottom: 30;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
