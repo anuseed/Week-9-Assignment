@@ -4,10 +4,10 @@ export default function SignInUp() {
   return (
     <div className="flex flex-row justify-center space-x-5 ">
       <SignedOut>
-        <SignInButton class="btn btn-accent" mode="modal">
+        <SignInButton class="btn btn-accent m-10" mode="modal">
           Sign In
         </SignInButton>
-        <SignUpButton class="btn btn-accent" mode="modal">
+        <SignUpButton class="btn btn-accent m-10" mode="modal">
           Sign Up
         </SignUpButton>
       </SignedOut>

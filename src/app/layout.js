@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { DynaPuff } from "next/font/google";
 
 const dynaPuff = DynaPuff({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <body className={dynaPuff.className}>
           <Header />
           {children}
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

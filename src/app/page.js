@@ -22,7 +22,7 @@ export default async function StickyHomePage() {
           <Image
             src={note}
             alt="cartoon girl with stickies stuck to her"
-            className=" m-5 rounded-lg border-2"
+            className=" m-5 "
             width={100}
             height={100}
           />
@@ -38,7 +38,7 @@ export default async function StickyHomePage() {
             <Image
               src={note}
               alt="cartoon girl with stickies stuck to her"
-              className=" m-5 rounded-lg border-2"
+              className=" m-5 "
               width={100}
               height={100}
             />
@@ -54,7 +54,7 @@ export default async function StickyHomePage() {
                 <div class="card-body">
                   <h2 class="card-title">
                     <Link
-                      class="link link-success"
+                      class="link link-hover text-blue-600"
                       href={`/user-profile/${sticky.user_clerk_id}`}
                     >
                       {sticky.user_name}
