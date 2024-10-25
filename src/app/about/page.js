@@ -4,7 +4,7 @@ export default function About() {
       <div class="card bg-primary text-primary-content w-64 h-64 shadow-xl">
         <h1 class="card-body">
           Stickies is a throwback to old-school social media, simple,
-          unclutered. Post a though. Read other's thoughs. That's it!
+          unclutered. Post a though. Read other&apos;s thoughs. That&apos;s it!
         </h1>
       </div>
     </div>
