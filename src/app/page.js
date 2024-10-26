@@ -48,13 +48,13 @@ export default async function StickyHomePage() {
           <div className={userStyles.container}>
             {wrangledStickies.map((sticky) => (
               <div
-                class="card bg-primary text-primary-content w-64 h-64 shadow-xl"
+                className="card bg-primary text-primary-content w-64 h-64 shadow-xl"
                 key={sticky.id}
               >
-                <div class="card-body">
-                  <h2 class="card-title">
+                <div className="card-body">
+                  <h2 className="card-title">
                     <Link
-                      class="link link-hover text-blue-600"
+                      className="link link-hover text-blue-600"
                       href={`/user-profile/${sticky.user_clerk_id}`}
                     >
                       {sticky.user_name}

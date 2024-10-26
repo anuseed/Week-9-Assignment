@@ -45,9 +45,9 @@ export default async function UserProfilePage({ params }) {
         {wrangledStickies.map((sticky) => (
           <div
             key={sticky.id}
-            class="card bg-primary text-primary-content w-64 h-64 shadow-xl"
+            className="card bg-primary text-primary-content w-64 h-64 shadow-xl"
           >
-            <p class="card-body">{sticky.sticky}</p>
+            <p className="card-body">{sticky.sticky}</p>
           </div>
         ))}
       </div>

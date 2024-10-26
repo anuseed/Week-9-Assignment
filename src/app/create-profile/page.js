@@ -37,7 +37,7 @@ export default async function SignUpPage() {
         <input
           id="user_name"
           name="user_name"
-          class="input input-bordered input-info w-full max-w-xs"
+          className="input input-bordered input-info w-full max-w-xs"
           placeholder="Type here"
           required
         />
@@ -45,19 +45,19 @@ export default async function SignUpPage() {
         <input
           id="location"
           name="location"
-          class="input input-bordered input-info w-full max-w-xs"
+          className="input input-bordered input-info w-full max-w-xs"
           placeholder="Type here"
         />
         <label html="two_cents">Your two cents&apos; thought.</label>
         <textarea
           id="two_cents"
           name="two_cents"
-          class="textarea textarea-info textarea-md w-full max-w-xs"
+          className="textarea textarea-info textarea-md w-full max-w-xs"
           placeholder="Type here, no more than a few words"
           required
           max={50}
         />
-        <button type="submit" class="btn btn-accent btn-outline w-24">
+        <button type="submit" className="btn btn-accent btn-outline w-24">
           Save
         </button>
       </form>

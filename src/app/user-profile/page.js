@@ -71,11 +71,11 @@ export default async function UserProfilePage() {
           <textarea
             id="sticky"
             name="sticky"
-            class="textarea textarea-bordered textarea-md w-full max-w-xs"
+            className="textarea textarea-bordered textarea-md w-full max-w-xs"
             placeholder="Sticky for your thoughts..."
             required
           />
-          <button type="submit" class="btn btn-accent btn-outline w-24">
+          <button type="submit" className="btn btn-accent btn-outline w-24">
             Save
           </button>
         </form>
@@ -85,10 +85,13 @@ export default async function UserProfilePage() {
         {wrangledStickies.map((sticky) => (
           <form action={handleDelete} key={sticky.id}>
             <input type="hidden" name="id" value={sticky.id} />
-            <div class="card bg-primary text-primary-content w-64 h-64 shadow-xl">
-              <p class="card-body">{sticky.sticky}</p>
+            <div className="card bg-primary text-primary-content w-64 h-64 shadow-xl">
+              <p className="card-body">{sticky.sticky}</p>
 
-              <button type="submit" class="btn btn-active btn-ghost w-24 m-5">
+              <button
+                type="submit"
+                className="btn btn-active btn-ghost w-24 m-5"
+              >
                 Delete
               </button>
             </div>
