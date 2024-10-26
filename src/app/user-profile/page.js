@@ -38,6 +38,14 @@ export default async function UserProfilePage() {
   const wrangledBiography = biography.rows;
   console.log(wrangledBiography);
 
+  async function handleDelete(formValues) {
+    "use server";
+    const stickyId = formValues.get("id");
+    const deleteSticky = await db.query(`DELETE FROM stickies WHERE id = $1`, [
+      stickyId,
+    ]);
+  }
+
   return (
     <>
       {wrangledBiography.map((biography) => (
@@ -71,12 +79,15 @@ export default async function UserProfilePage() {
 
       <div className={userStyles.container}>
         {wrangledStickies.map((sticky) => (
-          <div
-            key={sticky.id}
-            class="card bg-primary text-primary-content w-64 h-64 shadow-xl"
-          >
-            <p class="card-body">{sticky.sticky}</p>
-          </div>
+          <form action={handleDelete} key={sticky.id}>
+            <div class="card bg-primary text-primary-content w-64 h-64 shadow-xl">
+              <p class="card-body">{sticky.sticky}</p>
+
+              <button type="submit" class="btn btn-active btn-ghost w-24 m-5">
+                Delete
+              </button>
+            </div>
+          </form>
         ))}
       </div>
     </>
