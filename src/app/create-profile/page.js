@@ -21,6 +21,7 @@ export default async function SignUpPage() {
     );
 
     revalidatePath(`/user-profile`);
+    redirect(`/user-profile`);
   }
 
   return (

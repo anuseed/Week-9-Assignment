@@ -38,12 +38,16 @@ export default async function UserProfilePage() {
   const wrangledBiography = biography.rows;
   console.log(wrangledBiography);
 
+  // this delete will only work for the logged in user as the user_clerk_id needs to be the same as the logged in users
   async function handleDelete(formValues) {
     "use server";
     const stickyId = formValues.get("id");
-    const deleteSticky = await db.query(`DELETE FROM stickies WHERE id = $1`, [
-      stickyId,
-    ]);
+    const deleteSticky = await db.query(
+      `DELETE FROM stickies WHERE id = $1 AND user_clerk_id = $2`,
+      [stickyId, userId]
+    );
+    revalidatePath(`/user-profile`);
+    redirect(`/user-profile`);
   }
 
   return (
@@ -80,6 +84,7 @@ export default async function UserProfilePage() {
       <div className={userStyles.container}>
         {wrangledStickies.map((sticky) => (
           <form action={handleDelete} key={sticky.id}>
+            <input type="hidden" name="id" value={sticky.id} />
             <div class="card bg-primary text-primary-content w-64 h-64 shadow-xl">
               <p class="card-body">{sticky.sticky}</p>
 
